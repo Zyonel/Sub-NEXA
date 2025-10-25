@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nexa — Landing</title>
+<link rel="shortcut icon" href="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #120417;
+      --bg-2: #2b0d3a;
+      --accent-1: #8a2be2; /* bright purple */
+      --accent-2: #5b2e8a; /* deep purple */
+      --muted: rgba(255,255,255,0.06);
+      --glass: rgba(255,255,255,0.04);
+      --text: #f5f3ff;
+      --subtext: rgba(245,243,255,0.8);
+      --card-shadow: 0 6px 24px rgba(16,8,32,0.5);
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 55%, #0e0214 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-y:scroll;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* container */
+    .wrap { max-width:1100px; margin:0 auto; padding:24px; }
+
+    /* Header */
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:8px 0 20px;
+    }
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand-mark{
+      width:44px;height:44px;border-radius:10px;
+      background: linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;
+      box-shadow: 0 6px 18px rgba(90,35,140,0.35);
+      font-size:18px;color:white;
+    }
+    .brand-name{ font-weight:700; letter-spacing:0.4px; font-size:18px; }
+
+    .menu-btn{
+      width:44px;height:44px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: var(--card-shadow);
+      cursor:pointer;
+    }
+    .menu-lines{ width:18px;height:2px;background:linear-gradient(90deg,#fff,#e9ddff);position:relative;border-radius:2px; }
+    .menu-lines::before,.menu-lines::after{content:"";position:absolute;left:0;right:0;height:2px;border-radius:2px;background:inherit}
+    .menu-lines::before{top:-6px}
+    .menu-lines::after{top:6px}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:24px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+
+    .hero-inner{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:20px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      box-shadow: var(--card-shadow);
+      overflow:hidden;
+    }
+
+    .hero-left{
+      flex:1;
+    }
+    .eyebrow{ display:inline-block; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:white; padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px; margin-bottom:14px;}
+    .hero h1{
+      margin:0 0 12px 0;
+      font-size:28px;
+      line-height:1.05;
+      color:var(--text);
+    }
+    .hero p{ margin:0 0 18px 0; color:var(--subtext); font-size:15px; max-width:540px; }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      background: linear-gradient(90deg,var(--accent-1),#a26eff);
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow: 0 10px 30px rgba(138,43,226,0.22);
+      border: 0;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .cta:hover{ transform:translateY(-4px); box-shadow: 0 20px 40px rgba(138,43,226,0.28); }
+
+    /* hero-right mockup */
+    .hero-right{
+      width:220px;
+      min-width:200px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .phone-mock{
+      width:190px;height:360px;border-radius:26px;background: linear-gradient(180deg,#15031b, rgba(255,255,255,0.02));
+      padding:14px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 18px 60px rgba(8,3,18,0.7), inset 0 -6px 24px rgba(255,255,255,0.02);
+      display:flex;flex-direction:column;gap:10px;justify-content:flex-start;position:relative; overflow:hidden;
+    }
+    .phone-top { display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--subtext); font-size:12px }
+    .phone-screen{
+      margin-top:8px;flex:1;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;display:flex;flex-direction:column;gap:8px;
+      color:var(--text); font-size:13px;
+    }
+    .phone-chip{ height:46px;background:linear-gradient(90deg,#3f0072,#7a2fc4); border-radius:10px; padding:8px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 6px 18px rgba(100,30,150,0.25);}
+
+    /* Image gallery */
+    .gallery {
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:12px;
+    }
+    .gallery .img {
+      height:84px;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
+      box-shadow: 0 8px 28px rgba(8,2,22,0.5);
+    }
+    .gallery .img img{ width:100%; height:100%; object-fit:cover; display:block; filter: contrast(1.02) saturate(1.05); }
+
+    /* Why choose section */
+    .why{
+      margin:36px 0;
+      display:grid;
+      gap:18px;
+    }
+    .why-inner{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      align-items:center;
+    }
+    .reasons {
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+      gap:14px;
+    }
+    .reason{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px; border-radius:12px; box-shadow: var(--card-shadow);
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .reason .icon{
+      width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      flex-shrink:0;
+    }
+    .reason h4{ margin:0 0 6px 0; font-size:15px }
+    .reason p{ margin:0; color:var(--subtext); font-size:13px }
+
+    /* FAQ area */
+    .faq {
+      margin:28px 0;
+    }
+    .faq .faq-list{
+      display:grid;
+      gap:12px;
+    }
+    .faq-item{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:12px 14px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 12px 36px rgba(6,3,12,0.55);
+      cursor:pointer;
+      transition: transform .14s ease;
+    }
+    .faq-item:hover{ transform: translateY(-4px); }
+    .faq-q{ display:flex; align-items:center; gap:12px; font-weight:600; }
+    .triangle{
+      width:14px;height:14px;border-radius:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      display:inline-flex;align-items:center;justify-content:center;color:white;font-size:11px;
+      transform: rotate(0deg); transition: transform .18s ease;
+    }
+    .faq-item.open .triangle{ transform: rotate(90deg); }
+    .faq-a{ margin-top:10px;color:var(--subtext); font-size:14px; display:none; }
+    .faq-item.open .faq-a{ display:block; }
+
+    /* large final FAQ-like list (mimics screenshot) */
+    .faq-screenshot-list{
+      margin-top:22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:14px;
+      border-radius:16px;
+      border: 1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 18px 48px rgba(6,3,12,0.6);
+    }
+    .faq-screenshot-list .row{
+      background: rgba(0,0,0,0.25);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      display:flex;align-items:center;justify-content:space-between;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .faq-screenshot-list .row:last-child{ margin-bottom:0 }
+
+    footer{
+      margin:40px 0 64px;
+      text-align:center;
+      color:rgba(255,255,255,0.6);
+      font-size:13px;
+    }
+
+    /* small responsive tweaks */
+    @media (min-width:880px){
+      .hero{ grid-template-columns: 1fr auto; }
+      .hero-inner{ padding:28px; }
+      .hero h1{ font-size:34px; }
+      .gallery { grid-template-columns: repeat(5, 1fr); }
+      .reasons { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width:879px){
+      .wrap{ padding:16px; }
+      .gallery { grid-template-columns: repeat(3,1fr); }
+      .hero-right{ order: -1; justify-self:center; }
+      .phone-mock{ transform: scale(0.9) translateY(0px); }
+      .reasons { grid-template-columns: repeat(1,1fr); }
+    }
+
+    /* reveal animation */
+    .reveal { opacity:0; transform: translateY(14px); transition: transform .6s cubic-bezier(.2,.9,.3,1), opacity .6s ease; }
+    .reveal.is-visible{ opacity:1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="brand-mark"><img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" width="50" alt="logo"/></div>
+        <div>
+          <div class="brand-name">Nexa</div>
+          <div style="font-size:12px;color:var(--subtext); margin-top:2px;">Build · Earn · Grow</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="cta" id="top-cta"><a href="plan.html">Get Started Now</a></button>
+        <!--<div class="menu-btn" aria-label="menu" title="menu">
+          <div class="menu-lines"></div>
+        </div>-->
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner reveal">
+        <div class="hero-left">
+          <div class="eyebrow">Launch with Nexa</div>
+          <h1>With flexible entry plans, instant earning opportunities, and global job offers — Nexa helps you build digital wealth.</h1>
+          <p>Shortcut your path to reliable income, upskill on the go, and join a community focused on growth.</p>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <button class="cta" id="hero-cta">Know More About Nexa</button>
+            <a href="#why" style="color:var(--subtext);font-weight:600">See how it works →</a>
+          </div>
+
+          <!-- gallery small -->
+          <div class="gallery" style="margin-top:18px;">
+            <!-- 10 images (use Picsum for placeholders) -->
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.53.55 AM.jpeg" alt="placeholder 1"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.54.34 AM.jpeg" alt="placeholder 2"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.55.36 AM (1).jpeg" alt="placeholder 3"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.55.36 AM.jpeg" alt="placeholder 4"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM (1).jpeg" alt="placeholder 5"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM (2).jpeg" alt="placeholder 6"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM.jpeg" alt="placeholder 7"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.03 AM (1).jpeg" alt="placeholder 8"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.03 AM.jpeg" alt="placeholder 9"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.59.51 AM.jpeg" alt="placeholder 10"></div>
+            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 6.00.25 AM.jpeg" alt="placeholder 10"></div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="phone-mock reveal" style="min-width:190px;">
+            <div class="phone-top">
+              <div style="opacity:0.9">Nexa • Wallet</div>
+              <div style="font-size:12px; color:var(--subtext)">Live</div>
+            </div>
+
+            <div class="phone-screen">
+              <div class="phone-chip">
+                <div style="font-weight:700">₦12,750</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.8)">Available</div>
+              </div>
+
+              <div style="display:flex;gap:8px;font-size:12px;align-items:center;">
+                <div style="flex:1;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;text-align:center;">Earn</div>
+                <div style="flex:1;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;text-align:center;">Refer</div>
+                <div style="flex:1;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;text-align:center;">Jobs</div>
+              </div>
+
+              <div style="font-size:12px;color:var(--subtext);margin-top:8px">Shortcuts</div>
+              <div style="display:flex;gap:8px;margin-top:6px;">
+                <div style="flex:1;background:linear-gradient(90deg,#3d006e,#6f2ea8);height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700">Start</div>
+                <div style="flex:1;background:rgba(255,255,255,0.02);height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center">More</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Nexa -->
+    <section id="why" class="why reveal">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <div style="font-weight:700;font-size:20px">Why Choose Nexa</div>
+          <div style="color:var(--subtext);margin-top:6px">The below are reasons why you should choose Nexa</div>
+        </div>
+      </div>
+
+      <div class="why-inner">
+        <div class="reasons">
+          <div class="reason">
+            <div class="icon">
+              <!-- lightning -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8L21 10h-7l-1-8z" fill="white" opacity="0.95"/></svg>
+            </div>
+            <div>
+              <h4>Fast payouts</h4>
+              <p>Get earnings delivered quickly with reliable payout options.</p>
+            </div>
+          </div>
+
+          <div class="reason">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="white" opacity="0.95"/></svg>
+            </div>
+            <div>
+              <h4>Trusted marketplace</h4>
+              <p>Curated opportunities and vetted partners to keep you safe.</p>
+            </div>
+          </div>
+
+          <div class="reason">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h4>Flexible plans</h4>
+              <p>Choose entry levels that suit your time and budget.</p>
+            </div>
+          </div>
+
+          <div class="reason">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h4>Built for growth</h4>
+              <p>Learning pathways that convert to real earning skills.</p>
+            </div>
+          </div>
+
+          <div class="reason">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="12" rx="2" fill="white" opacity="0.95"/></svg>
+            </div>
+            <div>
+              <h4>Community support</h4>
+              <p>Active groups, help centers, and referral bonuses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq reveal">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-weight:700;font-size:20px">Frequently Asked Questions</div>
+          <div style="color:var(--subtext);margin-top:6px">Tap to expand answers.</div>
+        </div>
+      </div>
+
+      <div class="faq-list" style="margin-top:14px;">
+        <div class="faq-item" data-id="1" tabindex="0" role="button">
+          <div class="faq-q">
+            <div class="triangle">▶</div>
+            <div>What is Nexa?</div>
+          </div>
+          <div class="faq-a">Nexa is a digital ecosystem built for connection, creativity and reward. </br> We turn your time online into real value - whether you are 
+        gaming, wathching, or learning.</div>
+        </div>
+
+        <div class="faq-item" data-id="2" tabindex="0" role="button">
+          <div class="faq-q">
+            <div class="triangle">▶</div>
+            <div>How much is the registration fee?</div>
+          </div>
+          <div class="faq-a">Registration fees vary by plan — start with the free plan or choose a paid plan for premium benefits.</div>
+        </div>
+
+        <div class="faq-item" data-id="3" tabindex="0" role="button">
+          <div class="faq-q">
+            <div class="triangle">▶</div>
+            <div>How do I earn with Nexa?</div>
+          </div>
+          <div class="faq-a">Complete tasks, refer friends, or take gigs listed on the platform. Many earning paths are available. </br>
+        With Nexa even a single touch counts</div>
+        </div>
+
+        <div class="faq-item" data-id="4" tabindex="0" role="button">
+          <div class="faq-q">
+            <div class="triangle">▶</div>
+            <div>What's included in each plan?</div>
+          </div>
+          <div class="faq-a">Each plan lists included features on the signup page — typically training modules, referrals, and payout speed differ by plan.</div>
+        </div>
+
+        <div class="faq-item" data-id="5" tabindex="0" role="button">
+          <div class="faq-q">
+            <div class="triangle">▶</div>
+            <div>How do I pay?</div>
+          </div>
+          <div class="faq-a">We accept multiple payment methods (cards, local transfers). Payment options depend on your region.</div>
+        </div>
+      </div>
+
+<section class="faq-section reveal">
+  <h2>Other Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">How fast is activation?</button>
+    <div class="faq-answer">
+      <p>Activation is instant. Once you sign up and verify your details, your Nexa account becomes active immediately — no waiting period required.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I upgrade later?</button>
+    <div class="faq-answer">
+      <p>Yes, you can upgrade anytime. Simply go to your account settings and select your preferred plan — your data and progress remain intact.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Do I need prior experience?</button>
+    <div class="faq-answer">
+      <p>No prior experience is required. Nexa is beginner-friendly and includes guides, tips, and customer support to help you start smoothly.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">I'm outside Nigeria — can I join?</button>
+    <div class="faq-answer">
+      <p>Absolutely! Nexa is available internationally. You can access the platform from anywhere in the world and transact in your preferred currency.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is Nexa legit?</button>
+    <div class="faq-answer">
+      <p>Yes, Nexa is 100% legit. We’re a registered digital platform built for transparency, user trust, and long-term value.</p>
+    </div>
+  </div>
+</section>
+
+<!--<style>
+  /* 🔹 FAQ Section Styling */
+  .faq-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #f7f2ff 0%, #f0e5ff 100%);
+  }
+  .faq-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #4b0082;
+  }
+  .faq-item {
+    max-width: 800px;
+    margin: 10px auto;
+    text-align: left;
+  }
+  .faq-question {
+    width: 100%;
+    background: #6a0dad;
+    color: white;
+    padding: 18px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .faq-question:hover {
+    background: #8a2be2;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: white;
+    border-radius: 0 0 10px 10px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 22px;
+  }
+  .faq-answer p {
+    padding: 15px 0;
+    color: #333;
+    font-size: 1rem;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 22px 20px;
+  }
+</style>-->
+
+<script>
+  // 🔹 FAQ Toggle Script
+  document.querySelectorAll('.faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle('active');
+    });
+  });
+</script>
+
+    </section>
+
+    <footer>
+      © <strong>Nexa</strong> — Built for digital growth.
+    </footer>
+
+  </div> <!-- wrap -->
+
+  <script>
+    // FAQ toggle logic
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => toggleItem(item));
+      item.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleItem(item); } });
+    });
+
+    function toggleItem(el){
+      const isOpen = el.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!isOpen) el.classList.add('open');
+    }
+
+    // simple reveal-on-scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) e.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // CTA click handler (scroll to why)
+    document.getElementById('hero-cta').addEventListener('click', () => {
+      document.getElementById('why').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    document.getElementById('top-cta').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <!-- 🔹 Lightbox Popup with Swipe & Arrows -->
+<div id="lightbox" class="lightbox">
+  <span class="close-btn">&times;</span>
+  <span class="nav-btn prev">&#10094;</span>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Full view" />
+  <span class="nav-btn next">&#10095;</span>
+</div>
+
+<style>
+  /* 🔹 Lightbox Styling */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+  }
+  .lightbox-img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    animation: zoomIn .3s ease;
+  }
+  .close-btn {
+    position: absolute;
+    top: 30px; right: 40px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: 0.2s;
+  }
+  .close-btn:hover { color: #ccc; }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.25); }
+  .nav-btn.prev { left: 30px; }
+  .nav-btn.next { right: 30px; }
+
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+
+<script>
+  // 🔹 Lightbox with Swipe and Arrow Navigation
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close-btn");
+  const prevBtn = document.querySelector(".nav-btn.prev");
+  const nextBtn = document.querySelector(".nav-btn.next");
+  const images = Array.from(document.querySelectorAll(".gallery img"));
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  // 🔹 Swipe support for mobile
+  let startX = 0;
+  lightbox.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+  lightbox.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (diff > 50) showNext(); // swipe left
+    else if (diff < -50) showPrev(); // swipe right
+  });
+
+  // 🔹 Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "Escape") lightbox.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

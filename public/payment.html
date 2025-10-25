@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexa — Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #120417;
+      --bg-2: #2b0d3a;
+      --accent-1: #8a2be2;
+      --accent-2: #5b2e8a;
+      --text: #f5f3ff;
+      --subtext: rgba(245,243,255,0.8);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 100%);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .container{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.4);
+      padding:28px;
+      max-width:420px;
+      width:100%;
+      text-align:center;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:22px;
+    }
+    p{
+      color:var(--subtext);
+      font-size:14px;
+      margin:4px 0 14px;
+    }
+
+    .info{
+      text-align:left;
+      background:rgba(255,255,255,0.03);
+      padding:12px;
+      border-radius:12px;
+      margin-top:10px;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .bank{
+      margin-top:20px;
+      padding:16px;
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      border-radius:12px;
+      color:#fff;
+      text-align:left;
+      font-size:14px;
+      box-shadow:0 8px 28px rgba(138,43,226,0.25);
+    }
+
+    .bank strong{font-size:15px;display:block;margin-bottom:4px;}
+
+    .timer{
+      margin-top:20px;
+      font-weight:700;
+      font-size:18px;
+      color:#fff;
+    }
+
+    .expired{
+      text-align:center;
+      font-size:18px;
+      color:rgba(255,255,255,0.6);
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      background: #8a2be2;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #9b4dff;
+      transform: scale(1.05);
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header img {
+      width: 35px;
+      height: 35px;
+      /*border-radius: 50%;*/
+      object-fit: cover;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #cbb2ff;
+      font-weight: bold;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 480px) {
+       header img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" alt="Nexa Logo">
+    <h1 style="color:#cbb2ff;">Nexa</h1>
+  </header>
+
+  <div class="container" id="paymentContainer">
+    <h2>Complete Your Payment</h2>
+    <p>Please make payment to the account below before the timer runs out.</p>
+
+    <!-- Auto-filled user info -->
+    <div class="info" id="userInfo">
+      <div><strong>Name:</strong> <span id="displayName"></span></div>
+      <div><strong>Email:</strong> <span id="displayEmail"></span></div>
+      <div><strong>Plan:</strong> <span id="displayPlan"></span></div>
+    </div>
+
+    <div class="bank">
+      <strong>Account Details:</strong>
+      <div>Bank: Moniepoint MFB</div>
+      <div>Account Number: 9159507819</div>
+      <div>Account Name: ANNABEL TORITSEJU EKPEMINA</div>
+
+      <h1 style="text-align:center;">OR</h1>
+
+      <strong>Alternative Account:</strong>
+      <div>Bank: Fairmoney Microfinance Bank LTD 🏦</div>
+      <div>Account Number: 8072325207</div>
+      <div>Account Name: Ekpemina Annabel</div>
+    </div>
+
+    <button id="paymentDone">Payment Done</button>
+
+    <div class="timer">Time left: <span id="countdown">05:00</span></div>
+  </div>
+
+  <div id="expiredPage" class="expired" style="display:none;">
+    <p>⏰ Payment time has expired.</p>
+  </div>
+
+  <script>
+    // Retrieve user data from localStorage
+    const userData = JSON.parse(localStorage.getItem("nexaSignup"));
+
+    if (userData) {
+      document.getElementById("displayName").textContent = userData.name;
+      document.getElementById("displayEmail").textContent = userData.email;
+      document.getElementById("displayPlan").textContent = userData.plan;
+    } else {
+      alert("No signup data found. Please sign up first.");
+      window.location.href = "signup.html";
+    }
+
+    // Countdown timer (5 mins)
+    let timeLeft = 5 * 60; // seconds
+    const countdown = document.getElementById("countdown");
+    const container = document.getElementById("paymentContainer");
+    const expiredPage = document.getElementById("expiredPage");
+
+    const timer = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdown.textContent = `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
+      timeLeft--;
+
+      if(timeLeft < 0){
+        clearInterval(timer);
+        container.style.display = "none";
+        expiredPage.style.display = "block";
+      }
+    }, 1000);
+
+    // Handle "Payment Done" click
+    document.getElementById("paymentDone").addEventListener("click", () => {
+      alert("✅ Please upload your receipt.");
+      window.location.href = "upload.html";
+    });
+  </script>
+
+</body>
+</html>
