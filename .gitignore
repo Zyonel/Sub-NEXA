@@ -2,7 +2,8 @@
 node_modules/
 
 # Uploaded files (users' receipts)
-uploads/
+uploads/*
+!uploads/.gitkeep
 
 # Environment variables
 .env

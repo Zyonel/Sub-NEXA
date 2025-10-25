@@ -2,9 +2,13 @@ import express from "express";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import cors from "cors"; // 👈 NEW
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+// Enable CORS (so your admin panel hosted elsewhere can fetch uploads)
+app.use(cors());
 
 // Setup multer to save files in /uploads folder
 const storage = multer.diskStorage({
@@ -33,4 +37,6 @@ app.get("/uploads-list", (req, res) => {
   res.json(files);
 });
 
-app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🚀 Server running at http://localhost:${PORT}`)
+);
