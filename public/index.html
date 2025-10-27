@@ -265,6 +265,197 @@
     /* reveal animation */
     .reveal { opacity:0; transform: translateY(14px); transition: transform .6s cubic-bezier(.2,.9,.3,1), opacity .6s ease; }
     .reveal.is-visible{ opacity:1; transform: translateY(0); }
+  
+  /* 🔹 Mobile-first responsive fixes */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    padding: 14px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .cta {
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+
+  /* Phone mockup resize */
+  .phone-mock {
+    transform: scale(0.85);
+    margin: 16px 0;
+  }
+
+  /* Gallery responsiveness */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .gallery .img {
+    height: 70px;
+  }
+
+  /* Why Choose Nexa */
+  .why-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .reasons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .reason {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .reason h4 {
+    font-size: 14px;
+  }
+
+  .reason p {
+    font-size: 13px;
+  }
+
+  /* FAQ styling for mobile */
+  .faq .faq-list {
+    gap: 10px;
+  }
+
+  .faq-item {
+    padding: 10px 12px;
+  }
+
+  .faq-q {
+    font-size: 14px;
+  }
+
+  .faq-a {
+    font-size: 13px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px;
+    margin-bottom: 80px;
+  }
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.brand-name {
+  font-size: 16px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+
+/* 🔹 Responsive lightbox popup */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.lightbox img:active {
+  transform: scale(0.98);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Mobile-specific tuning */
+@media (max-width: 768px) {
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 75vh;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 14px;
+    font-size: 26px;
+    width: 34px;
+    height: 34px;
+    line-height: 32px;
+  }
+}
+
   </style>
 </head>
 <body>

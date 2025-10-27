@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexa | Plans</title>
+  <title>Nexa | Plan</title>
   <style>
     /* ========== RESET & GLOBAL ========== */
     * {
@@ -14,7 +14,7 @@
     }
 
     body {
-      background: #120023; /* Deep purple base */
+      background: #120023;
       color: white;
       min-height: 100vh;
       display: flex;
@@ -22,7 +22,6 @@
       align-items: center;
     }
 
-    /* Add soft purple gradients and glow */
     body::before {
       content: "";
       position: fixed;
@@ -79,15 +78,15 @@
       color: #bba0ff;
     }
 
-    /* ========== PRICING GRID ========== */
+    /* ========== PRICING CARD ========== */
     .pricing-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 60px auto;
       padding: 0 40px 100px;
       width: 100%;
-      max-width: 1100px;
+      max-width: 600px;
     }
 
     .plan-card {
@@ -98,6 +97,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
     }
     .plan-card:hover {
       transform: translateY(-10px);
@@ -105,13 +105,13 @@
     }
 
     .plan-title {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #e5dbff;
       margin-bottom: 15px;
     }
     .plan-price {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: bold;
       color: #c69cff;
       margin-bottom: 15px;
@@ -123,7 +123,7 @@
     .plan-features li {
       margin: 10px 0;
       color: #d8c8ff;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .choose-btn {
@@ -141,7 +141,6 @@
       transform: scale(1.05);
     }
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       header {
         padding: 15px 25px;
@@ -160,67 +159,29 @@
   <!-- HEADER -->
   <header>
     <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" width="50" alt="logo"/>
-    <h1 style="color:#cbb2ff; text-decoration:none;">Nexa</h1>
+    <h1>Nexa</h1>
     <a href="index.html">← Back to Home</a>
   </header>
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <h2>Choose a Plan That Fits You</h2>
-    <p>Flexible options designed to match your goals.</p>
+    <h2>Join Nexa Premium</h2>
+    <p>Unlock all features for one affordable price.</p>
   </section>
 
-  <!-- PRICING GRID -->
+  <!-- SINGLE PLAN -->
   <section class="pricing-container">
-
     <div class="plan-card">
-      <h3 class="plan-title">Starter</h3>
-      <p class="plan-price">₦2,000 / month</p>
+      <h3 class="plan-title">Premium Plan</h3>
+      <p class="plan-price">₦8,500</p>
       <ul class="plan-features">
-        <li>Access to basic tools</li>
-        <li>Community support</li>
-        <li>1 Project workspace</li>
-        <li>Standard analytics</li>
-      </ul>
-      <a href="signup.html?plan=Starter" class="choose-btn">Choose Plan</a>
-    </div>
-
-    <div class="plan-card">
-      <h3 class="plan-title">Standard</h3>
-      <p class="plan-price">₦5,000 / month</p>
-      <ul class="plan-features">
-        <li>Everything in Starter</li>
-        <li>Advanced reporting</li>
-        <li>5 Project workspaces</li>
+        <li>Full system access</li>
+        <li>Affiliate dashboard</li>
+        <li>Advanced analytics</li>
         <li>Priority support</li>
       </ul>
-      <a href="signup.html?plan=Standard" class="choose-btn">Choose Plan</a>
+      <a href="signup.html?plan=Premium" class="choose-btn">Choose Plan</a>
     </div>
-
-    <div class="plan-card">
-      <h3 class="plan-title">Pro</h3>
-      <p class="plan-price">₦10,000 / month</p>
-      <ul class="plan-features">
-        <li>Everything in Standard</li>
-        <li>Unlimited workspaces</li>
-        <li>Affiliate dashboard</li>
-        <li>Advanced insights</li>
-      </ul>
-      <a href="signup.html?plan=Pro" class="choose-btn">Choose Plan</a>
-    </div>
-
-    <div class="plan-card">
-      <h3 class="plan-title">Elite</h3>
-      <p class="plan-price">₦20,000 / month</p>
-      <ul class="plan-features">
-        <li>All Pro features</li>
-        <li>Dedicated account manager</li>
-        <li>Custom integrations</li>
-        <li>VIP support access</li>
-      </ul>
-      <a href="signup.html?plan=Elite" class="choose-btn">Choose Plan</a>
-    </div>
-
   </section>
 
 </body>
