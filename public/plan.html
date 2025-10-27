@@ -152,6 +152,205 @@
         padding: 30px 20px;
       }
     }
+
+    /* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #120023;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(155, 89, 182, 0.3), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.25), transparent 60%);
+  z-index: -1;
+}
+
+/* ========== HEADER ========== */
+header {
+  width: 100%;
+  padding: 18px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header img {
+  width: 55px;
+  height: auto;
+  /*border-radius: 50%;*/
+  transition: transform 0.3s ease;
+}
+header img:hover {
+  transform: scale(1.05);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #cbb2ff;
+  letter-spacing: 1px;
+}
+
+header a {
+  color: #e4d2ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s, transform 0.3s;
+}
+header a:hover {
+  opacity: 0.8;
+  transform: translateX(-3px);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  text-align: center;
+  margin-top: 60px;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d4bfff;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #bba0ff;
+}
+
+/* ========== PRICING CARD ========== */
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  padding: 0 40px 100px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.plan-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(86, 26, 140, 0.6);
+}
+
+.plan-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e5dbff;
+  margin-bottom: 15px;
+}
+.plan-price {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #c69cff;
+  margin-bottom: 15px;
+}
+.plan-features {
+  list-style: none;
+  margin-bottom: 25px;
+}
+.plan-features li {
+  margin: 10px 0;
+  color: #d8c8ff;
+  font-size: 1rem;
+}
+
+.choose-btn {
+  display: inline-block;
+  background: #8a2be2;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  transition: background 0.3s, transform 0.2s;
+}
+.choose-btn:hover {
+  background: #9b4dff;
+  transform: scale(1.05);
+}
+
+/* ========== RESPONSIVENESS ========== */
+@media (max-width: 900px) {
+  header {
+    padding: 15px 30px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  header img {
+    width: 45px;
+  }
+  header h1 {
+    font-size: 1.4rem;
+  }
+  header a {
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .plan-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  header a {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+  header img {
+    width: 40px;
+  }
+  header h1 {
+    font-size: 1.2rem;
+  }
+}
+
   </style>
 </head>
 <body>
