@@ -159,16 +159,13 @@
   <div class="form-container">
     <h2>Create Your Account</h2>
     <form id="signupForm">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <input type="password" id="password" placeholder="Password" required minlength="6" maxlength="12">
+      <input type="text" id="name" placeholder="Full Name" required autocomplete="name">
+      <input type="email" id="email" placeholder="Email Address" required autocomplete="email">
+      <input type="password" id="password" placeholder="Password" required minlength="6" maxlength="12" autocomplete="new-password">
       <input type="text" id="plan" placeholder="Plan" readonly>
 
-      <button type="submit">
-        <a href="payment.html" style="text-decoration: none; color: white;">
-          Create Account And Continue To Payment
-        </a>
-      </button>
+     <button type="submit">Create Account And Continue To Payment</button>
+
     </form>
 
     <div class="success-message" id="successMsg">
