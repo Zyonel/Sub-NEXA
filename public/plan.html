@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexa | Plan</title>
+  <title>Nexa | Plans</title>
   <style>
-    /* ========== RESET & GLOBAL ========== */
     * {
       margin: 0;
       padding: 0;
@@ -34,10 +33,9 @@
       z-index: -1;
     }
 
-    /* ========== HEADER ========== */
     header {
       width: 100%;
-      padding: 20px 50px;
+      padding: 18px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -47,46 +45,60 @@
       top: 0;
       z-index: 10;
     }
+
+    header img {
+      width: 55px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
     header h1 {
       font-size: 1.8rem;
       color: #cbb2ff;
       letter-spacing: 1px;
     }
+
     header a {
       color: #e4d2ff;
       text-decoration: none;
       font-weight: 600;
-      transition: opacity 0.3s;
-    }
-    header a:hover {
-      opacity: 0.8;
+      transition: opacity 0.3s, transform 0.3s;
     }
 
-    /* ========== HERO SECTION ========== */
+    header a:hover {
+      opacity: 0.8;
+      transform: translateX(-3px);
+    }
+
     .hero {
       text-align: center;
       margin-top: 60px;
     }
+
     .hero h2 {
       font-size: 2.5rem;
       font-weight: 700;
       color: #d4bfff;
     }
+
     .hero p {
       font-size: 1.1rem;
       margin-top: 10px;
       color: #bba0ff;
     }
 
-    /* ========== PRICING CARD ========== */
     .pricing-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
       margin: 60px auto;
       padding: 0 40px 100px;
       width: 100%;
-      max-width: 600px;
+      max-width: 1100px;
     }
 
     .plan-card {
@@ -97,8 +109,8 @@
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      width: 100%;
     }
+
     .plan-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 25px rgba(86, 26, 140, 0.6);
@@ -110,16 +122,19 @@
       color: #e5dbff;
       margin-bottom: 15px;
     }
+
     .plan-price {
       font-size: 2.2rem;
       font-weight: bold;
       color: #c69cff;
       margin-bottom: 15px;
     }
+
     .plan-features {
       list-style: none;
       margin-bottom: 25px;
     }
+
     .plan-features li {
       margin: 10px 0;
       color: #d8c8ff;
@@ -136,252 +151,103 @@
       border-radius: 30px;
       transition: background 0.3s, transform 0.2s;
     }
+
     .choose-btn:hover {
       background: #9b4dff;
       transform: scale(1.05);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
       header {
-        padding: 15px 25px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px 30px;
       }
+
+      header img {
+        width: 45px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header a {
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 6px 16px;
+        border-radius: 20px;
+      }
+
       .hero h2 {
         font-size: 2rem;
       }
-      .plan-card {
-        padding: 30px 20px;
-      }
     }
-
-    /* ========== RESET & GLOBAL ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #120023;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 30%, rgba(155, 89, 182, 0.3), transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.25), transparent 60%);
-  z-index: -1;
-}
-
-/* ========== HEADER ========== */
-header {
-  width: 100%;
-  padding: 18px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-header img {
-  width: 55px;
-  height: auto;
-  /*border-radius: 50%;*/
-  transition: transform 0.3s ease;
-}
-header img:hover {
-  transform: scale(1.05);
-}
-
-header h1 {
-  font-size: 1.8rem;
-  color: #cbb2ff;
-  letter-spacing: 1px;
-}
-
-header a {
-  color: #e4d2ff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.3s, transform 0.3s;
-}
-header a:hover {
-  opacity: 0.8;
-  transform: translateX(-3px);
-}
-
-/* ========== HERO SECTION ========== */
-.hero {
-  text-align: center;
-  margin-top: 60px;
-}
-.hero h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #d4bfff;
-}
-.hero p {
-  font-size: 1.1rem;
-  margin-top: 10px;
-  color: #bba0ff;
-}
-
-/* ========== PRICING CARD ========== */
-.pricing-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 60px auto;
-  padding: 0 40px 100px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.plan-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 40px 30px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-}
-.plan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(86, 26, 140, 0.6);
-}
-
-.plan-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #e5dbff;
-  margin-bottom: 15px;
-}
-.plan-price {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #c69cff;
-  margin-bottom: 15px;
-}
-.plan-features {
-  list-style: none;
-  margin-bottom: 25px;
-}
-.plan-features li {
-  margin: 10px 0;
-  color: #d8c8ff;
-  font-size: 1rem;
-}
-
-.choose-btn {
-  display: inline-block;
-  background: #8a2be2;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
-  transition: background 0.3s, transform 0.2s;
-}
-.choose-btn:hover {
-  background: #9b4dff;
-  transform: scale(1.05);
-}
-
-/* ========== RESPONSIVENESS ========== */
-@media (max-width: 900px) {
-  header {
-    padding: 15px 30px;
-  }
-  header h1 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 700px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  header img {
-    width: 45px;
-  }
-  header h1 {
-    font-size: 1.4rem;
-  }
-  header a {
-    font-size: 0.95rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 6px 16px;
-    border-radius: 20px;
-  }
-  .hero h2 {
-    font-size: 2rem;
-  }
-  .plan-card {
-    padding: 30px 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  header a {
-    font-size: 0.85rem;
-    padding: 5px 12px;
-  }
-  header img {
-    width: 40px;
-  }
-  header h1 {
-    font-size: 1.2rem;
-  }
-}
-
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" width="50" alt="logo"/>
+    <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" alt="logo" />
     <h1>Nexa</h1>
     <a href="index.html">← Back to Home</a>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
-    <h2>Join Nexa Premium</h2>
-    <p>Unlock all features for one affordable price.</p>
+    <h2>Choose Your Plan</h2>
+    <p>Pick a plan that fits your goals and unlock full Nexa access.</p>
   </section>
 
-  <!-- SINGLE PLAN -->
+  <!-- MULTIPLE PLANS -->
   <section class="pricing-container">
+    
+    <div class="plan-card">
+      <h3 class="plan-title">Starter Plan</h3>
+      <p class="plan-price">₦2,500</p>
+      <ul class="plan-features">
+        <li>Basic system access</li>
+        <li>Limited dashboard</li>
+        <li>Email support</li>
+      </ul>
+      <a href="signup.html?plan=Starter" class="choose-btn">Choose Plan</a>
+    </div>
+
+    <div class="plan-card">
+      <h3 class="plan-title">Standard Plan</h3>
+      <p class="plan-price">₦4,500</p>
+      <ul class="plan-features">
+        <li>Extended access</li>
+        <li>Affiliate dashboard</li>
+        <li>Priority email support</li>
+      </ul>
+      <a href="signup.html?plan=Standard" class="choose-btn">Choose Plan</a>
+    </div>
+
     <div class="plan-card">
       <h3 class="plan-title">Premium Plan</h3>
-      <p class="plan-price">₦8,500</p>
+      <p class="plan-price">₦6,500</p>
       <ul class="plan-features">
         <li>Full system access</li>
-        <li>Affiliate dashboard</li>
+        <li>Affiliate & bonus tracking</li>
         <li>Advanced analytics</li>
-        <li>Priority support</li>
       </ul>
       <a href="signup.html?plan=Premium" class="choose-btn">Choose Plan</a>
     </div>
-  </section>
 
+    <div class="plan-card">
+      <h3 class="plan-title">Elite Plan</h3>
+      <p class="plan-price">₦8,500</p>
+      <ul class="plan-features">
+        <li>All premium features</li>
+        <li>Custom reports</li>
+        <li>VIP support access</li>
+      </ul>
+      <a href="signup.html?plan=Elite" class="choose-btn">Choose Plan</a>
+    </div>
+
+  </section>
 </body>
 </html>
