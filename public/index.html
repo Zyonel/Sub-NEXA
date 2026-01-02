@@ -3,24 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nexa — Landing</title>
-<link rel="shortcut icon" href="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png">
+  <title>Exnex — Landing</title>
+<link rel="shortcut icon" href="images/Jan 2, 2026, 09_53_00 AM (1).png">
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    /*:root{
       --bg-1: #120417;
-      --bg-2: #2b0d3a;
-      --accent-1: #8a2be2; /* bright purple */
-      --accent-2: #5b2e8a; /* deep purple */
-      --muted: rgba(255,255,255,0.06);
+      --bg-2: #2b0d3a;*/
+     /* --accent-1: #8a2be2;*/ /* bright purple */
+      /*--accent-2: #5b2e8a;*/ /* deep purple */
+      /*--muted: rgba(255,255,255,0.06);
       --glass: rgba(255,255,255,0.04);
       --text: #f5f3ff;
       --subtext: rgba(245,243,255,0.8);
       --card-shadow: 0 6px 24px rgba(16,8,32,0.5);
       --radius: 14px;
-    }
+    }*/
+
+    :root{
+  --bg-1: #060b08;        /* deep black-green */
+  --bg-2: #0c1f16;        /* dark emerald */
+  --accent-1: #00e676;   /* neon green */
+  --accent-2: #00b35a;   /* deep green */
+  --muted: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.05);
+  --text: #eafff4;
+  --subtext: rgba(234,255,244,0.78);
+  --card-shadow: 0 10px 40px rgba(0, 230, 118, 0.12);
+  --radius: 14px;
+}
 
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -60,6 +73,12 @@
       box-shadow: 0 6px 18px rgba(90,35,140,0.35);
       font-size:18px;color:white;
     }
+
+    .brand-mark{
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 8px 22px rgba(0, 230, 118, 0.35);
+}
+
     .brand-name{ font-weight:700; letter-spacing:0.4px; font-size:18px; }
 
     .menu-btn{
@@ -119,6 +138,11 @@
       border: 0;
       transition: transform .18s ease, box-shadow .18s ease;
     }
+    .cta{
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 12px 34px rgba(0, 230, 118, 0.25);
+}
+
     .cta:hover{ transform:translateY(-4px); box-shadow: 0 20px 40px rgba(138,43,226,0.28); }
 
     /* hero-right mockup */
@@ -142,6 +166,11 @@
       color:var(--text); font-size:13px;
     }
     .phone-chip{ height:46px;background:linear-gradient(90deg,#3f0072,#7a2fc4); border-radius:10px; padding:8px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 6px 18px rgba(100,30,150,0.25);}
+
+    .phone-chip{
+  background: linear-gradient(90deg,#00e676,#00b35a);
+  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.35);
+}
 
     /* Image gallery */
     .gallery {
@@ -245,6 +274,75 @@
       color:rgba(255,255,255,0.6);
       font-size:13px;
     }
+body{
+    background: linear-gradient(
+  180deg,
+  var(--bg-1) 0%,
+  var(--bg-2) 55%,
+  #020604 100%
+);
+}
+
+.wallet-title{
+  font-weight: 700;
+  background: linear-gradient(90deg, #00e676, #00b35a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wallet-status{
+  font-size: 12px;
+  color: rgba(234, 255, 244, 0.7);
+}
+
+hero-right{
+  background: linear-gradient(90deg, #00e676, #00b35a);
+}
+
+.phone-screen{
+  margin-top:8px;
+  flex:1;
+  border-radius:12px;
+  background:
+    linear-gradient(
+      180deg,
+      #07150f 0%,
+      #020604 100%
+    );
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  color:#eafff4;
+  font-size:13px;
+  border:1px solid rgba(0, 230, 118, 0.15);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 230, 118, 0.08),
+    0 14px 40px rgba(0, 230, 118, 0.18);
+}
+
+.phone-mock{
+  width:190px;
+  height:360px;
+  border-radius:26px;
+  background: linear-gradient(
+    180deg,
+    #07150f 0%,
+    #020604 100%
+  );
+  padding:14px;
+  border:1px solid rgba(0, 230, 118, 0.18);
+  box-shadow:
+    0 20px 60px rgba(0, 230, 118, 0.25),
+    inset 0 0 40px rgba(0, 230, 118, 0.06);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  justify-content:flex-start;
+  position:relative;
+  overflow:hidden;
+}
+
 
     /* small responsive tweaks */
     @media (min-width:880px){
@@ -456,6 +554,7 @@
   }
 }
 
+
   </style>
 </head>
 <body>
@@ -464,9 +563,9 @@
     <!-- Header -->
     <header>
       <div class="logo">
-        <div class="brand-mark"><img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" width="50" alt="logo"/></div>
+        <div class="brand-mark"><img src="images/Jan 2, 2026, 09_53_00 AM (1).png" width="50" alt="logo"/></div>
         <div>
-          <div class="brand-name">Nexa</div>
+          <div class="brand-name">Exnex</div>
           <div style="font-size:12px;color:var(--subtext); margin-top:2px;">Build · Earn · Grow</div>
         </div>
       </div>
@@ -482,36 +581,37 @@
     <section class="hero">
       <div class="hero-inner reveal">
         <div class="hero-left">
-          <div class="eyebrow">Launch with Nexa</div>
-          <h1>With flexible entry plans, instant earning opportunities, and global job offers — Nexa helps you build digital wealth.</h1>
+          <div class="eyebrow">Launch with Exnex</div>
+          <h1>With flexible entry plans, instant earning opportunities, and global job offers — Exnex helps you build digital wealth.</h1>
           <p>Shortcut your path to reliable income, upskill on the go, and join a community focused on growth.</p>
           <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <button class="cta" id="hero-cta">Know More About Nexa</button>
+            <button class="cta" id="hero-cta">Know More About Exnex</button>
             <a href="#why" style="color:var(--subtext);font-weight:600">See how it works →</a>
           </div>
 
           <!-- gallery small -->
           <div class="gallery" style="margin-top:18px;">
             <!-- 10 images (use Picsum for placeholders) -->
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.53.55 AM.jpeg" alt="placeholder 1"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.54.34 AM.jpeg" alt="placeholder 2"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.55.36 AM (1).jpeg" alt="placeholder 3"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.55.36 AM.jpeg" alt="placeholder 4"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM (1).jpeg" alt="placeholder 5"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM (2).jpeg" alt="placeholder 6"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.02 AM.jpeg" alt="placeholder 7"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.03 AM (1).jpeg" alt="placeholder 8"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.57.03 AM.jpeg" alt="placeholder 9"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 5.59.51 AM.jpeg" alt="placeholder 10"></div>
-            <div class="img"><img src="images/WhatsApp Image 2025-10-23 at 6.00.25 AM.jpeg" alt="placeholder 10"></div>
+            <div class="img"><img src="images/exnex 3.jpeg"></div>
+            <div class="img"><img src="images/exnex 2.jpeg" alt="placeholder 1"></div>
+            <div class="img"><img src="images/exnex 1.jpeg" alt="placeholder 2"></div>
+            <div class="img"><img src="images/exnex 4.jpeg" alt="placeholder 3"></div>
+            <div class="img"><img src="images/exnex 5.jpeg" alt="placeholder 4"></div>
+            <div class="img"><img src="images/exnex 6.jpeg" alt="placeholder 5"></div>
+            <div class="img"><img src="images/exnex 7.jpeg" alt="placeholder 6"></div>
+            <div class="img"><img src="images/exnex 8.jpeg" alt="placeholder 7"></div>
+            <div class="img"><img src="images/exnex 9.jpeg" alt="placeholder 8"></div>
+            <div class="img"><img src="images/exnex 10.jpeg" alt="placeholder 9"></div>
+            <div class="img"><img src="images/exnex 11.jpeg" alt="placeholder 10"></div>
+            <div class="img"><img src="images/exnex 12.jpeg" alt="placeholder 10"></div>
           </div>
         </div>
 
         <div class="hero-right">
           <div class="phone-mock reveal" style="min-width:190px;">
             <div class="phone-top">
-              <div style="opacity:0.9">Nexa • Wallet</div>
-              <div style="font-size:12px; color:var(--subtext)">Live</div>
+              <div class="wallet-title" style="opacity:0.9;">Exnex • Wallet</div>
+              <div class="wallet-status" style="font-size:12px; color:var(--subtext)">Live</div>
             </div>
 
             <div class="phone-screen">
@@ -528,7 +628,7 @@
 
               <div style="font-size:12px;color:var(--subtext);margin-top:8px">Shortcuts</div>
               <div style="display:flex;gap:8px;margin-top:6px;">
-                <div style="flex:1;background:linear-gradient(90deg,#3d006e,#6f2ea8);height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700">Start</div>
+                <div style="flex:1;background:linear-gradient(90deg,#00e676,#00b35a);height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700">Start</div>
                 <div style="flex:1;background:rgba(255,255,255,0.02);height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center">More</div>
               </div>
             </div>
@@ -541,8 +641,8 @@
     <section id="why" class="why reveal">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
         <div>
-          <div style="font-weight:700;font-size:20px">Why Choose Nexa</div>
-          <div style="color:var(--subtext);margin-top:6px">The below are reasons why you should choose Nexa</div>
+          <div style="font-weight:700;font-size:20px">Why Choose Exnex</div>
+          <div style="color:var(--subtext);margin-top:6px">The below are reasons why you should choose Exnex</div>
         </div>
       </div>
 
@@ -615,9 +715,9 @@
         <div class="faq-item" data-id="1" tabindex="0" role="button">
           <div class="faq-q">
             <div class="triangle">▶</div>
-            <div>What is Nexa?</div>
+            <div>What is Exnex?</div>
           </div>
-          <div class="faq-a">Nexa is a digital ecosystem built for connection, creativity and reward. </br> We turn your time online into real value - whether you are 
+          <div class="faq-a">Exnex is a digital ecosystem built for connection, creativity and reward. </br> We turn your time online into real value - whether you are 
         gaming, wathching, or learning.</div>
         </div>
 
@@ -632,10 +732,10 @@
         <div class="faq-item" data-id="3" tabindex="0" role="button">
           <div class="faq-q">
             <div class="triangle">▶</div>
-            <div>How do I earn with Nexa?</div>
+            <div>How do I earn with Exnex?</div>
           </div>
           <div class="faq-a">Complete tasks, refer friends, or take gigs listed on the platform. Many earning paths are available. </br>
-        With Nexa even a single touch counts</div>
+        With Exnex even a single touch counts</div>
         </div>
 
         <div class="faq-item" data-id="4" tabindex="0" role="button">
@@ -661,7 +761,7 @@
   <div class="faq-item">
     <button class="faq-question">How fast is activation?</button>
     <div class="faq-answer">
-      <p>Activation is instant. Once you sign up and verify your details, your Nexa account becomes active immediately — no waiting period required.</p>
+      <p>Activation is instant. Once you sign up and verify your details, your Exnex account becomes active immediately — no waiting period required.</p>
     </div>
   </div>
 
@@ -675,21 +775,21 @@
   <div class="faq-item">
     <button class="faq-question">Do I need prior experience?</button>
     <div class="faq-answer">
-      <p>No prior experience is required. Nexa is beginner-friendly and includes guides, tips, and customer support to help you start smoothly.</p>
+      <p>No prior experience is required. Exnex is beginner-friendly and includes guides, tips, and customer support to help you start smoothly.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question">I'm outside Nigeria — can I join?</button>
     <div class="faq-answer">
-      <p>Absolutely! Nexa is available internationally. You can access the platform from anywhere in the world and transact in your preferred currency.</p>
+      <p>Absolutely! Exnex is available internationally. You can access the platform from anywhere in the world and transact in your preferred currency.</p>
     </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Is Nexa legit?</button>
+    <button class="faq-question">Is Exnex legit?</button>
     <div class="faq-answer">
-      <p>Yes, Nexa is 100% legit. We’re a registered digital platform built for transparency, user trust, and long-term value.</p>
+      <p>Yes, Exnex is 100% legit. We’re a registered digital platform built for transparency, user trust, and long-term value.</p>
     </div>
   </div>
 </section>
@@ -758,7 +858,7 @@
     </section>
 
     <footer>
-      © <strong>Nexa</strong> — Built for digital growth.
+      © <strong>Exnex</strong> — Built for digital growth.
     </footer>
 
   </div> <!-- wrap -->

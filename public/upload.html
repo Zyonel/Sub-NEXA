@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nexa - Upload Receipt</title>
+  <title>Exnex - Upload Receipt</title>
   <style>
 
 body {
@@ -386,6 +386,39 @@ header h1 {
   letter-spacing: 1.5px;
 }
 
+body {
+  background: linear-gradient(135deg, #020604, #07150f);
+}
+
+.box {
+  background: linear-gradient(180deg, #07150f, #020604);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+}
+.box h2 {
+  color: #00e676;
+}
+
+input[type=file] {
+  background: rgba(0, 0, 0, 0.6);
+  color: #eafff4;
+  border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+button {
+  background: linear-gradient(90deg, #00e676, #00b35a);
+  color: #020604;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #1aff75, #00e676);
+  transform: scale(1.05);
+}
+
+header h1 {
+  color: #00e676;
+}
+
+
 /* ===== TABLET ===== */
 @media (max-width: 768px) {
   html {
@@ -457,8 +490,9 @@ header h1 {
 <body>
 
   <header>
-    <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" alt="Nexa Logo">
-    <h1 style="color:#cbb2ff;">Nexa</h1>
+    <img src="images/Jan 2, 2026, 09_53_00 AM (1).png" alt="Exnex Logo">
+    <h1 style="color:#00e676;">Exnex</h1>
+
   </header>
 
   <div class="box">
@@ -482,7 +516,7 @@ header h1 {
           alert('✅ Upload Successful!');
           
           // Redirect to WhatsApp DM (replace with your number)
-          const phone = '234 807 232 5207'; // your WhatsApp number (with country code, no +)
+          const phone = '234 915 741 7925'; // your WhatsApp number (with country code, no +)
           const message = encodeURIComponent("Hello! I just uploaded my payment receipt. Kindly confirm.");
           const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
           window.location.href = whatsappUrl;
@@ -495,6 +529,28 @@ header h1 {
         alert('An error occurred. Please try again.');
       }
     });
+/*
+    const form = document.getElementById('uploadForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const fileInput = form.querySelector('input[type="file"]');
+
+    if (!fileInput.files.length) {
+      alert("Please select a file first.");
+      return;
+    }
+
+    alert("✅ Receipt selected successfully!");
+
+    const phone = '2349157417925';
+    const message = encodeURIComponent(
+      "Hello! I just uploaded my payment receipt. Kindly confirm."
+    );
+
+    window.location.href = `https://wa.me/${phone}?text=${message}`;
+  });*/
   </script>
 </body>
 </html>

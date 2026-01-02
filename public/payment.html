@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexa — Payment</title>
+  <title>Exnex — Payment</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -127,6 +127,45 @@
       letter-spacing: 1px;
     }
 
+    :root {
+  --bg-1: #020604;        /* deep black */
+  --bg-2: #07150f;        /* dark green-black */
+  --accent-1: #00e676;   /* bright crypto green */
+  --accent-2: #00b35a;   /* deep green */
+  --text: #eafff4;
+  --subtext: rgba(234,255,244,0.75);
+}
+
+.container{
+  background: linear-gradient(180deg, #07150f, #020604);
+  border: 1px solid rgba(0,230,118,0.18);
+}
+
+.info{
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(0,230,118,0.12);
+}
+
+.bank{
+  background: linear-gradient(135deg, #00e676, #00b35a);
+  box-shadow: 0 10px 30px rgba(0,230,118,0.35);
+  color: #020604;
+}
+
+button {
+  background: linear-gradient(90deg, #00e676, #00b35a);
+  color: #020604;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #1aff75, #00e676);
+  transform: scale(1.05);
+}
+
+header a {
+  color: #00e676;
+}
+
     @media (max-width: 480px) {
        header img {
         width: 28px;
@@ -138,8 +177,9 @@
 <body>
 
   <header>
-    <img src="images/ChatGPT Image Oct 4, 2025, 03_51_38 PM (1).png" alt="Nexa Logo">
-    <h1 style="color:#cbb2ff;">Nexa</h1>
+    <img src="images/Jan 2, 2026, 09_53_00 AM (1).png" alt="Nexa Logo">
+    <h1 style="color:#00e676;">Exnex</h1>
+
   </header>
 
   <div class="container" id="paymentContainer">
@@ -155,10 +195,10 @@
 
     <div class="bank">
       <strong>Account Details:</strong>
-      <div>Bank: Moniepoint MFB</div>
-      <div>Account Number: 9159507819</div>
-      <div>Account Name: ANNABEL TORITSEJU EKPEMINA</div>
-
+      <div>Bank: Palmpay</div>
+      <div>Account Number: 9157417925</div>
+      <div>Account Name: AKHUAMHENKHUN ZION IROSAYIKE</div>
+<!--
       <h1 style="text-align:center;">OR</h1>
 
       <strong>Alternative Account:</strong>
@@ -166,7 +206,7 @@
       <div>Account Number: 8072325207</div>
       <div>Account Name: Ekpemina Annabel</div>
     </div>
-
+  -->
     <button id="paymentDone">Payment Done</button>
 
     <div class="timer">Time left: <span id="countdown">30:00</span></div>
