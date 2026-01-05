@@ -1,35 +1,39 @@
 import express from "express";
 import multer from "multer";
 import fs from "fs";
-import path from "path";
-import cors from "cors"; // 👈 NEW
+import cors from "cors";
 
+//const express = require('express');
+//const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Enable CORS (so your admin panel hosted elsewhere can fetch uploads)
+/* Ensure uploads folder exists */
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
+/* Middleware */
 app.use(cors());
 
-// Setup multer to save files in /uploads folder
+/* Multer setup */
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads"),
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
 });
 const upload = multer({ storage });
 
-// Serve static files
-app.use(express.static("public"));
+/* Serve static folders */
+app.use(express.static("public"));        // /upload.html
+app.use("/sub-nexa-admin", express.static("../sub-nexa-admin")); // /admin/receipt.html
 app.use("/uploads", express.static("uploads"));
 
-// Route to handle uploads
+/* Upload endpoint */
 app.post("/upload", upload.single("receipt"), (req, res) => {
-  res.send(`
-    <h2 style="font-family:sans-serif;">✅ Upload successful!</h2>
-    <p>Go to <a href="/admin.html">Admin Panel</a> to view receipts.</p>
-  `);
+  res.sendStatus(200);
 });
 
-// Route to list uploaded images
+/* List uploads */
 app.get("/uploads-list", (req, res) => {
   const files = fs.readdirSync("uploads")
     .filter(f => /\.(png|jpg|jpeg|gif|pdf)$/i.test(f))
@@ -37,6 +41,7 @@ app.get("/uploads-list", (req, res) => {
   res.json(files);
 });
 
-app.listen(PORT, () =>
-  console.log(`🚀 Server running at http://localhost:${PORT}`)
-);
+/* Start server */
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
