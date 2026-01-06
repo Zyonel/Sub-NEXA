@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import fs from "fs";
 import cors from "cors";
+import path from "path";
 
 //const express = require('express');
 //const path = require('path');
@@ -25,7 +26,14 @@ const upload = multer({ storage });
 
 /* Serve static folders */
 app.use(express.static("public"));        // /upload.html
-app.use("/sub-nexa-admin", express.static("../sub-nexa-admin")); // /admin/receipt.html
+
+//app.use("/sub-nexa-admin", express.static("../sub-nexa-admin")); // /admin/receipt.html
+// Admin page → /sub-nexa-admin/receipt.html
+app.use(
+  "/sub-nexa-admin",
+  express.static(path.join("..", "sub-nexa-admin"))
+);
+
 app.use("/uploads", express.static("uploads"));
 
 /* Upload endpoint */
@@ -37,7 +45,9 @@ app.post("/upload", upload.single("receipt"), (req, res) => {
 app.get("/uploads-list", (req, res) => {
   const files = fs.readdirSync("uploads")
     .filter(f => /\.(png|jpg|jpeg|gif|pdf)$/i.test(f))
-    .map(f => `/uploads/${f}`);
+    //.map(f => `/uploads/${f}`);
+    .map(f => `https://exnex-admin-1.onrender.com//uploads/${f}`);
+
   res.json(files);
 });
 
