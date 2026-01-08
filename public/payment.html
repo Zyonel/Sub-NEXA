@@ -249,10 +249,27 @@ header a {
     }, 1000);
 
     // Handle "Payment Done" click
-    document.getElementById("paymentDone").addEventListener("click", () => {
+   /* document.getElementById("paymentDone").addEventListener("click", () => {
       alert("✅ Please upload your receipt.");
-      window.location.href = "upload.html";
-    });
+      window.location.href = "upload.html"; 
+    }); */ 
+
+  document.getElementById("paymentDone").addEventListener("click", () => {
+    const userData = JSON.parse(localStorage.getItem("nexaSignup"));
+
+    const phoneNumber = "2349157417925"; // WhatsApp number (no +, no spaces)
+    const message = `Hello Exnex,%0A%0A` +
+      `I have completed my payment.%0A` +
+      `Name: ${userData?.name || ""}%0A` +
+      `Email: ${userData?.email || ""}%0A` +
+      `Plan: ${userData?.plan || ""}%0A%0A` +
+      `Please find my receipt attached.`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(whatsappUrl, "_blank");
+  });
+
   </script>
 
 </body>
